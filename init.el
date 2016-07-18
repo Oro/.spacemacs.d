@@ -274,7 +274,16 @@ you should place your code here."
     '(helm-ag-base-command "pt -e --nocolor --nogroup"))
   (server-start)
   (with-eval-after-load 'org
-    (setq org-default-notes-file "C:/Users/ORM/Dropbox/org/notes.org"))
+    (setq org-directory "c:/Users/ORM/Dropbox/org/")
+    (setq org-default-notes-file (concat org-directory "notes.org"))
+    (setq org-capture-templates '(
+                                  ("n" "Notes" entry (file+headline -default-notes-file "Notes")
+                                   "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")
+                                  ("b" "Bookmark" entry (file+headline -default-notes-file "Bookmarks")
+                                   "* %?\n%c\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
+                                  ("t" "ToDo" entry (file+headline org-default-notes-file "Tasks")
+                                   "* TODO %?\n %i\n %a\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n")))
+    )
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
   )
