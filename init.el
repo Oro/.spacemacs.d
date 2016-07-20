@@ -284,6 +284,7 @@ you should place your code here."
        (clojure . t)
        ))
     (setq org-directory "c:/Users/ORM/Dropbox/org/")
+    (setq org-confirm-babel-evaluate nil)
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-capture-templates '(
                                   ("n" "Notes" entry (file+headline -default-notes-file "Notes")
