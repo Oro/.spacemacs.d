@@ -275,6 +275,14 @@ you should place your code here."
     '(helm-ag-base-command "pt -e --nocolor --nogroup"))
   (server-start)
   (with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '(
+       (shell . t)
+       (python . t)
+       (lisp . t)
+       (clojure . t)
+       ))
     (setq org-directory "c:/Users/ORM/Dropbox/org/")
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-capture-templates '(
