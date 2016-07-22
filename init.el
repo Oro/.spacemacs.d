@@ -33,7 +33,7 @@ values."
      markdown
      clojure
      eyebrowse
-     spell-checking
+     (spell-checking :variables spell-checking-enable-by-default nil)
      dockerfile
      salt
      restclient
