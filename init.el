@@ -271,7 +271,8 @@ you should place your code here."
   (setq projectile-indexing-method 'native)
   (custom-set-variables
     '(ispell-dictionary "british")
-    '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
+    (if (eq system-type 'windows-nt)
+    '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe"))
     '(helm-ag-base-command "pt -e --nocolor --nogroup"))
   (server-start)
   (with-eval-after-load 'org
@@ -283,7 +284,9 @@ you should place your code here."
        (lisp . t)
        (clojure . t)
        ))
-    (setq org-directory "c:/Users/ORM/Dropbox/org/")
+    (if (eq system-type 'windows-nt)
+        (setq tramp-default-method "sshx")
+        (setq org-directory "c:/Users/ORM/Dropbox/org/"))
     (setq org-confirm-babel-evaluate nil)
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-capture-templates '(
@@ -312,7 +315,7 @@ you should place your code here."
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("71ecffba18621354a1be303687f33b84788e13f40141580fa81e7840752d31bf" default)))
+    ("d94eec01b45c7dc72e324af86fd2858e97c92220c195b5dbae5f8fd926a09cec" "71ecffba18621354a1be303687f33b84788e13f40141580fa81e7840752d31bf" default)))
  '(fci-rule-character-color "#192028")
  '(fringe-mode 6 nil (fringe))
  '(global-git-gutter+-mode t)
