@@ -271,9 +271,9 @@ you should place your code here."
   (setq projectile-indexing-method 'native)
   (custom-set-variables
     '(ispell-dictionary "british")
-    (if (eq system-type 'windows-nt)
-    '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe"))
-    '(helm-ag-base-command "pt -e --nocolor --nogroup"))
+    (when (eq system-type 'windows-nt)
+    '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
+    '(helm-ag-base-command "pt -e --nocolor --nogroup")))
   (server-start)
   (with-eval-after-load 'org
     (org-babel-do-load-languages
@@ -284,7 +284,7 @@ you should place your code here."
        (lisp . t)
        (clojure . t)
        ))
-    (if (eq system-type 'windows-nt)
+    (when (eq system-type 'windows-nt)
         (setq tramp-default-method "sshx")
         (setq org-directory "c:/Users/ORM/Dropbox/org/"))
     (setq org-confirm-babel-evaluate nil)
