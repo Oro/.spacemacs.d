@@ -55,7 +55,9 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(hackernews)
+   dotspacemacs-additional-packages '(hackernews
+                                      org-journal
+                                      helm-org-rifle)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
                                     gnuplot
@@ -286,9 +288,12 @@ you should place your code here."
        (clojure . t)
        ))
     (when (eq system-type 'windows-nt)
-        (setq tramp-default-method "sshx")
-        (setq org-directory "c:/Users/ORM/Dropbox/org/"))
+      (setq tramp-default-method "sshx"))
+    (spacemacs/set-leader-keys "so" 'helm-org-rifle)
+    (setq org-directory "~/Dropbox/org/")
     (setq org-confirm-babel-evaluate nil)
+    (setq org-journal-dir org-directory)
+    (setq org-agenda-files (list org-directory))
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-capture-templates '(
                                   ("n" "Notes" entry (file+headline -default-notes-file "Notes")
