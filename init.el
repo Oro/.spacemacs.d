@@ -294,6 +294,7 @@ you should place your code here."
     (setq org-confirm-babel-evaluate nil)
     (setq org-journal-dir org-directory)
     (setq org-agenda-files (list org-directory))
+    (setq org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+")
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-capture-templates '(
                                   ("n" "Notes" entry (file+headline -default-notes-file "Notes")
