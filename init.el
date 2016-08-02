@@ -276,6 +276,7 @@ you should place your code here."
     '(helm-ag-base-command "pt -e --nocolor --nogroup")))
   (server-start)
   (with-eval-after-load 'org
+    (require 'org-protocol)
     (org-babel-do-load-languages
      'org-babel-load-languages
      '(
