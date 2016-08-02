@@ -294,7 +294,7 @@ you should place your code here."
                                   ("n" "Notes" entry (file+headline -default-notes-file "Notes")
                                    "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
                                   ("b" "Bookmark" entry (file+headline -default-notes-file "Bookmarks")
-                                   "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n %c" :empty-lines 1)
+                                   "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n %c\n%i" :empty-lines 1)
                                   ("t" "ToDo" entry (file+headline org-default-notes-file "Tasks")
                                    "* TODO %?\n %i\n %a\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)))
     )
