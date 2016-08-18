@@ -290,6 +290,7 @@ you should place your code here."
        (python . t)
        (lisp . t)
        (clojure . t)
+       (sql . t)
        (restclient . t)
        (http . t)
        ))
