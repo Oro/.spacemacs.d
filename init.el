@@ -301,7 +301,6 @@ you should place your code here."
     (setq org-directory "~/Dropbox/org/")
     (setq org-confirm-babel-evaluate nil)
     (setq org-src-fontify-natively t)
-    (setq org-src-tab-acts-natively t)
     (setq org-journal-dir org-directory)
     (setq org-agenda-files (list org-directory))
     (setq org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+")
