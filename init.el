@@ -60,6 +60,7 @@ values."
    dotspacemacs-additional-packages '(hackernews
                                       org-journal
                                       ob-restclient
+                                      ob-http
                                       helm-org-rifle)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -290,6 +291,7 @@ you should place your code here."
        (lisp . t)
        (clojure . t)
        (restclient . t)
+       (http . t)
        ))
     (when (eq system-type 'windows-nt)
       (setq tramp-default-method "sshx"))
