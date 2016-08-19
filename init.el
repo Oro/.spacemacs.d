@@ -38,6 +38,7 @@ values."
      dockerfile
      salt
      restclient
+     command-log
      (org :variables
           org-enable-github-support t)
      python
