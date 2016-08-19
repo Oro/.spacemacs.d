@@ -296,6 +296,7 @@ you should place your code here."
        ))
     (when (eq system-type 'windows-nt)
       (setq tramp-default-method "sshx"))
+    (setq org-startup-with-inline-images t)
     (setq org-babel-use-quick-and-dirty-noweb-expansion t)
     (spacemacs/set-leader-keys "so" 'helm-org-rifle)
     (setq org-directory "~/Dropbox/org/")
