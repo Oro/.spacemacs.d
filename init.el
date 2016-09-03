@@ -43,6 +43,7 @@ values."
           org-enable-github-support t)
      python
      ranger
+     latex
      shell
      themes-megapack
      ;; (shell :variables
