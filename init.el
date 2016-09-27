@@ -31,6 +31,7 @@ values."
      javascript
      git
      markdown
+     pandoc
      clojure
      eyebrowse
      vagrant
