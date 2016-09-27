@@ -30,6 +30,7 @@ values."
      (evil-snipe :variables evil-snipe-enable-alternate-f-and-t-behaviors t)
      javascript
      git
+     terraform
      markdown
      pandoc
      clojure
