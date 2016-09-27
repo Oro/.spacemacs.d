@@ -277,6 +277,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq projectile-indexing-method 'native)
+  (setq create-lockfiles nil)
   (custom-set-variables
     '(ispell-dictionary "british")
     (when (eq system-type 'windows-nt)
