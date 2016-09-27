@@ -33,10 +33,8 @@ values."
      markdown
      pandoc
      clojure
-     eyebrowse
      vagrant
      (spell-checking :variables spell-checking-enable-by-default nil)
-     dockerfile
      salt
      restclient
      command-log
