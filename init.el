@@ -52,6 +52,7 @@ values."
      syntax-checking
      version-control
      windows-scripts
+     (osx :variables osx-use-option-as-meta nil)
      yaml
      gnus
      )
