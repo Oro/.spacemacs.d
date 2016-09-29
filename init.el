@@ -63,6 +63,8 @@ values."
    dotspacemacs-additional-packages '(hackernews
                                       org-journal
                                       ob-restclient
+                                      demo-it
+                                      org-tree-slide
                                       ob-http
                                       helm-org-rifle)
    ;; A list of packages and/or extensions that will not be install and loaded.
