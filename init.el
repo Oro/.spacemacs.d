@@ -44,6 +44,7 @@ values."
      git
      terraform
      markdown
+     deft
      pandoc
      clojure
      vagrant
@@ -341,6 +342,7 @@ you should place your code here."
     '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
     '(helm-ag-base-command "pt -e --nocolor --nogroup")))
   (server-start)
+  (setq deft-directory "~/Dropbox/Simplenote/")
   (with-eval-after-load 'org
     (require 'org-protocol)
     (org-babel-do-load-languages
