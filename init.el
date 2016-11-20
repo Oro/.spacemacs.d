@@ -337,10 +337,10 @@ you should place your code here."
   (setq projectile-indexing-method 'native)
   (setq create-lockfiles nil)
   (custom-set-variables
-    '(ispell-dictionary "british")
-    (when (eq system-type 'windows-nt)
-    '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
-    '(helm-ag-base-command "pt -e --nocolor --nogroup")))
+   '(ispell-dictionary "british")
+   (when (eq system-type 'windows-nt)
+     '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
+     '(helm-ag-base-command "pt -e --nocolor --nogroup")))
   (server-start)
   (setq deft-directory "~/Dropbox/Simplenote/")
   (with-eval-after-load 'org
