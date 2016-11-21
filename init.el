@@ -368,6 +368,7 @@ you should place your code here."
     (setq org-agenda-files (list org-directory))
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-use-fast-todo-selection t)
+    (setq org-clock-out-remove-zero-time-clocks t)
     ;; org customization see also http://doc.norang.ca/org-mode.html#TodoKeywords
     (setq org-todo-keywords
           (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
@@ -408,14 +409,6 @@ you should place your code here."
                    "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
                   ("h" "Habit" entry (file "refile.org")
                    "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
-    ;; Remove empty LOGBOOK drawers on clock out
-    (defun oro/remove-empty-drawer-on-clock-out ()
-      (interactive)
-      (save-excursion
-        (beginning-of-line 0)
-        (org-remove-empty-drawer-at "LOGBOOK" (point))))
-
-    (add-hook 'org-clock-out-hook 'oro/remove-empty-drawer-on-clock-out 'append)
     )
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
