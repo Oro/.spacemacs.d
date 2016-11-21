@@ -367,13 +367,55 @@ you should place your code here."
     (setq org-journal-dir org-directory)
     (setq org-agenda-files (list org-directory))
     (setq org-default-notes-file (concat org-directory "notes.org"))
-    (setq org-capture-templates '(
-                                  ("n" "Notes" entry (file+headline -default-notes-file "Notes")
-                                   "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
-                                  ("b" "Bookmark" entry (file+headline -default-notes-file "Bookmarks")
-                                   "* %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n %c\n%i" :empty-lines 1)
-                                  ("t" "ToDo" entry (file+headline org-default-notes-file "Tasks")
-                                   "* TODO %?\n %i\n %a\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)))
+    (setq org-use-fast-todo-selection t)
+    ;; org customization see also http://doc.norang.ca/org-mode.html#TodoKeywords
+    (setq org-todo-keywords
+          (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                  (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+
+    (setq org-todo-keyword-faces
+          (quote (("TODO" :foreground "red" :weight bold)
+                  ("NEXT" :foreground "blue" :weight bold)
+                  ("DONE" :foreground "forest green" :weight bold)
+                  ("WAITING" :foreground "orange" :weight bold)
+                  ("HOLD" :foreground "magenta" :weight bold)
+                  ("CANCELLED" :foreground "forest green" :weight bold)
+                  ("MEETING" :foreground "forest green" :weight bold)
+                  ("PHONE" :foreground "forest green" :weight bold))))
+
+    (setq org-todo-state-tags-triggers
+          (quote (("CANCELLED" ("CANCELLED" . t))
+                  ("WAITING" ("WAITING" . t))
+                  ("HOLD" ("WAITING") ("HOLD" . t))
+                  (done ("WAITING") ("HOLD"))
+                  ("TODO" ("WAITING") ("CANCELLED") ("HOLD"))
+                  ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
+                  ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
+
+    ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
+    (setq org-capture-templates
+          (quote (("t" "Todo" entry (file "refile.org")
+                   "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+                  ("r" "Respond" entry (file "refile.org")
+                   "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+                  ("n" "Note" entry (file "refile.org")
+                   "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+                  ("w" "org-protocol" entry (file "refile.org")
+                   "* TODO Review %c\n%U\n" :immediate-finish t)
+                  ("m" "Meeting" entry (file "refile.org")
+                   "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+                  ("p" "Phone call" entry (file "refile.org")
+                   "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+                  ("h" "Habit" entry (file "refile.org")
+                   "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+    ;; Remove empty LOGBOOK drawers on clock out
+    (defun oro/remove-empty-drawer-on-clock-out ()
+      (interactive)
+      (save-excursion
+        (beginning-of-line 0)
+        (org-remove-empty-drawer-at "LOGBOOK" (point))))
+
+    (add-hook 'org-clock-out-hook 'oro/remove-empty-drawer-on-clock-out 'append)
     )
   (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
   (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
