@@ -371,6 +371,7 @@ you should place your code here."
     (setq org-default-notes-file (concat org-directory "notes.org"))
     (setq org-use-fast-todo-selection t)
     (setq org-clock-out-remove-zero-time-clocks t)
+    (setq org-clock-in-resume t)
     ;; org customization see also http://doc.norang.ca/org-mode.html#TodoKeywords
     (setq org-todo-keywords
           (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
