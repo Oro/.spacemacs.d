@@ -46,6 +46,7 @@ values."
      markdown
      deft
      pandoc
+     twitter
      clojure
      vagrant
      (spell-checking :variables spell-checking-enable-by-default nil)
@@ -363,6 +364,8 @@ you should place your code here."
     (setq org-startup-with-inline-images t)
     (setq org-babel-use-quick-and-dirty-noweb-expansion t)
     (spacemacs/set-leader-keys "so" 'helm-org-rifle)
+    (setq twittering-use-master-password t
+          twittering-private-info-file "~/Dropbox/.twittering-mode.gpg")
     (setq org-directory "~/Dropbox/org/")
     (setq org-confirm-babel-evaluate nil)
     (setq org-src-fontify-natively t)
