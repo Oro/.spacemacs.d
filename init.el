@@ -79,6 +79,7 @@ values."
                                       demo-it
                                       org-tree-slide
                                       ob-http
+                                      ox-jira
                                       helm-org-rifle)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -345,6 +346,7 @@ you should place your code here."
   (setq deft-directory "~/Dropbox/Simplenote/")
   (with-eval-after-load 'org
     (require 'org-protocol)
+    (require 'ox-jira)
     (org-babel-do-load-languages
      'org-babel-load-languages
      '(
