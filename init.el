@@ -65,7 +65,6 @@ values."
      ;;        shell-default-height -130
      ;;        shell-default-position 'right)
      syntax-checking
-     version-control
      windows-scripts
      (osx :variables osx-use-option-as-meta nil)
      yaml
