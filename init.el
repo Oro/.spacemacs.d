@@ -52,6 +52,7 @@ values."
      (spell-checking :variables spell-checking-enable-by-default nil)
      salt
      restclient
+     docker
      command-log
      (org :variables
           org-enable-github-support t)
