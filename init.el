@@ -371,6 +371,7 @@ you should place your code here."
     (setq org-src-fontify-natively t)
     (setq org-journal-dir org-directory)
     (setq org-agenda-files (list org-directory))
+    (run-at-time nil 300 'org-save-all-org-buffers)
     (setq org-refile-targets (quote ((nil :maxlevel . 9) ;; current file
                                      (org-agenda-files :maxlevel . 9)))) ;; all agenda files
     (setq org-default-notes-file (concat org-directory "notes.org"))
