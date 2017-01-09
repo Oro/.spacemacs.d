@@ -44,7 +44,6 @@ values."
      git
      terraform
      markdown
-     deft
      pandoc
      twitter
      clojure
@@ -53,7 +52,6 @@ values."
      salt
      restclient
      docker
-     command-log
      (org :variables
           org-enable-github-support t)
      python
@@ -78,9 +76,7 @@ values."
                                       org-journal
                                       ob-restclient
                                       demo-it
-                                      org-tree-slide
                                       ob-http
-                                      ox-jira
                                       helm-org-rifle)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
