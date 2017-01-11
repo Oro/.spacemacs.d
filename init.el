@@ -50,6 +50,7 @@ values."
      vagrant
      (spell-checking :variables spell-checking-enable-by-default nil)
      salt
+     (elfeed :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      restclient
      docker
      (org :variables
