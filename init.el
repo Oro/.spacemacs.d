@@ -60,9 +60,6 @@ values."
      latex
      shell
      themes-megapack
-     ;; (shell :variables
-     ;;        shell-default-height -130
-     ;;        shell-default-position 'right)
      syntax-checking
      windows-scripts
      (osx :variables osx-use-option-as-meta nil)
