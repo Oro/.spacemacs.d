@@ -331,12 +331,15 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq projectile-indexing-method 'native)
   (setq create-lockfiles nil)
+  (add-hook 'elfeed-show-mode-hook 'visual-line-mode)
   (custom-set-variables
    '(ispell-dictionary "british")
    (when (eq system-type 'windows-nt)
      '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
      '(helm-ag-base-command "pt -e --nocolor --nogroup")))
   (server-start)
+  (custom-set-faces
+   '(variable-pitch ((t (:height 140)))))
   (with-eval-after-load 'org
     (require 'org-protocol)
     (org-babel-do-load-languages
