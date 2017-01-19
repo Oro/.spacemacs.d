@@ -356,6 +356,7 @@ you should place your code here."
     (when (eq system-type 'windows-nt)
       (setq tramp-default-method "sshx"))
     (setq org-startup-with-inline-images t)
+    (setq org-bullets-bullet-list '("⊢" "↳" "⋱" " "))
     (setq org-babel-use-quick-and-dirty-noweb-expansion t)
     (spacemacs/set-leader-keys "so" 'helm-org-rifle)
     (setq twittering-use-master-password t
