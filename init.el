@@ -372,6 +372,28 @@ you should place your code here."
 
   (setq ranger-cleanup-eagerly t)
   (global-emojify-mode)
+  (with-eval-after-load 'mu4e-alert
+    ;; Enable Desktop notifications
+    (mu4e-alert-set-default-style 'notifier))
+  (mu4e-alert-enable-notifications)
+
+  ;; make the `gnus-dired-mail-buffers' function also work on
+  ;; message-mode derived modes, such as mu4e-compose-mode
+  (require 'gnus-dired)
+  (defun gnus-dired-mail-buffers ()
+    "Return a list of active message buffers."
+    (let (buffers)
+      (save-current-buffer
+        (dolist (buffer (buffer-list t))
+     	    (set-buffer buffer)
+     	    (when (and (derived-mode-p 'message-mode)
+     		             (null message-sent-message-via))
+     	      (push (buffer-name buffer) buffers))))
+      (nreverse buffers)))
+
+  (setq gnus-dired-mail-mode 'mu4e-user-agent)
+  (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+
   (with-eval-after-load 'org
     (require 'org-protocol)
     (org-babel-do-load-languages
