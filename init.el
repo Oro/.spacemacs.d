@@ -356,17 +356,22 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq projectile-indexing-method 'native)
-  (setq create-lockfiles nil)
-  (add-hook 'elfeed-show-mode-hook 'visual-line-mode)
-  (custom-set-variables
-   '(ispell-dictionary "british")
-   (when (eq system-type 'windows-nt)
-     '(ispell-program-name "c:/Program Files (x86)/Aspell/bin/aspell.exe")
-     '(helm-ag-base-command "pt -e --nocolor --nogroup")))
+  (setq projectile-indexing-method 'native
+  create-lockfiles nil
+  display-time-default-load-average nil
+  powerline-default-separator nil)
   (server-start)
-  (custom-set-faces
-   '(variable-pitch ((t (:height 140)))))
+  (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
+  (require 'helm-bookmark)
+
+  (defun load-if-exists (f)
+    (if (file-exists-p (expand-file-name f))
+        (load-file (expand-file-name f))))
+  (load-if-exists "~/repos/beancount/editors/emacs/beancount.el")
+  (load-if-exists "~/repos/org-protocol-capture-html/org-protocol-capture-html.el")
+
+  (setq ranger-cleanup-eagerly t)
+  (global-emojify-mode)
   (with-eval-after-load 'org
     (require 'org-protocol)
     (org-babel-do-load-languages
