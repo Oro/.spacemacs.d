@@ -39,20 +39,23 @@ values."
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       auto-completion-enable-snippets-in-popup t)
-     emacs-lisp
-     javascript
-     git
-     terraform
-     markdown
-     pandoc
-     twitter
+     helm
      clojure
-     vagrant
+     finance
+     emoji
+     emacs-lisp
+     git
+     markdown
+     csv
+     html
+     pandoc
+     slack
+     twitter
+     mu4e
      (spell-checking :variables spell-checking-enable-by-default nil)
-     salt
-     (elfeed :variables rmh-elfeed-org-files (list "~/Dropbox/org/feeds.org"))
      restclient
      docker
+     plantuml
      (org :variables
           org-enable-github-support t)
      python
